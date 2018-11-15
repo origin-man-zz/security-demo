@@ -1,0 +1,26 @@
+
+## Spring DATASOURCE (DataSourceAutoConfiguration & DataSourceProperties)
+
+# on RDS
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://${RdsEndpoint}:3306/testSecurity
+    username: ${RdsUser}
+    password: ${RdsPassword}
+
+  ## Hibernate Properties
+  jpa:
+    properties:
+      hibernate:
+        # The SQL dialect makes Hibernate generate better SQL for the chosen database
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      # Hibernate ddl auto (create, create-drop, validate, update)
+      ddl-auto: update
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+
